@@ -1,0 +1,391 @@
+country,date,value,indicator
+Colombia,2024,6.60908593728228,inflacion
+Colombia,2023,11.7359044948689,inflacion
+Colombia,2022,10.1772313546166,inflacion
+Colombia,2021,3.49505757399448,inflacion
+Colombia,2020,2.52663500084706,inflacion
+Colombia,2019,3.52301932741447,inflacion
+Colombia,2018,3.24056932930569,inflacion
+Colombia,2017,4.31431325695011,inflacion
+Colombia,2016,7.51346024627675,inflacion
+Colombia,2015,4.9898311584953,inflacion
+Colombia,2014,2.89883787761738,inflacion
+Colombia,2013,2.01699224310383,inflacion
+Colombia,2012,3.16930188840055,inflacion
+Colombia,2011,3.4150334477625,inflacion
+Colombia,2010,2.27200227892008,inflacion
+Colombia,2009,4.20251661216482,inflacion
+Colombia,2008,6.99688495554511,inflacion
+Colombia,2007,5.54438485815156,inflacion
+Colombia,2006,4.29342363628927,inflacion
+Colombia,2005,5.05101962689696,inflacion
+Colombia,2004,5.90402005546502,inflacion
+Colombia,2003,7.1297886294186,inflacion
+Colombia,2002,6.35150728778872,inflacion
+Colombia,2001,7.96556090304834,inflacion
+Colombia,2000,9.22534818585366,inflacion
+Colombia,1999,10.8736870857471,inflacion
+Colombia,1998,18.6769799276672,inflacion
+Colombia,1997,18.4700217119089,inflacion
+Colombia,1996,20.7975755127402,inflacion
+Colombia,1995,20.8917930194849,inflacion
+Colombia,1994,22.8462417553045,inflacion
+Colombia,1993,22.4424828533275,inflacion
+Colombia,1992,27.0106266231361,inflacion
+Colombia,1991,30.3878204854436,inflacion
+Colombia,1990,29.1520245976215,inflacion
+Colombia,1989,25.8675480831988,inflacion
+Colombia,1988,28.1083969771704,inflacion
+Colombia,1987,23.302028364018,inflacion
+Colombia,1986,18.8424631612406,inflacion
+Colombia,1985,24.090174368125,inflacion
+Colombia,1984,16.1616171361426,inflacion
+Colombia,1983,19.5973170624765,inflacion
+Colombia,1982,24.7209882528585,inflacion
+Colombia,1981,27.4537624347993,inflacion
+Colombia,1980,26.5526531495356,inflacion
+Colombia,1979,24.1340757440455,inflacion
+Colombia,1978,17.7631590853462,inflacion
+Colombia,1977,33.802818357982,inflacion
+Colombia,1976,19.8312249167931,inflacion
+Colombia,1975,23.4375025650554,inflacion
+Colombia,1974,23.8709573656697,inflacion
+Colombia,1973,22.5296486781843,inflacion
+Colombia,1972,12.4444589907729,inflacion
+Colombia,1971,11.9402616979216,inflacion
+Colombia,1970,6.90862275848241,inflacion
+Colombia,1969,6.98166307955375,inflacion
+Colombia,1968,7.4475387831777,inflacion
+Colombia,1967,8.32819136425948,inflacion
+Colombia,1966,16.7281682748598,inflacion
+Colombia,1965,7.5906836693158,inflacion
+Colombia,1964,17.0724352164554,inflacion
+Colombia,1963,26.3554355250467,inflacion
+Colombia,1962,4.6970939506247,inflacion
+Colombia,1961,8.28319045648716,inflacion
+Colombia,1960,5.81407628204986,inflacion
+United States,2024,2.94952520485207,inflacion
+United States,2023,4.11633838374488,inflacion
+United States,2022,8.00279982052121,inflacion
+United States,2021,4.69785886363742,inflacion
+United States,2020,1.23358439630629,inflacion
+United States,2019,1.81221007526021,inflacion
+United States,2018,2.44258329692817,inflacion
+United States,2017,2.13011000365961,inflacion
+United States,2016,1.26158320570536,inflacion
+United States,2015,0.118627135552451,inflacion
+United States,2014,1.62222297740817,inflacion
+United States,2013,1.46483265562717,inflacion
+United States,2012,2.06933726526067,inflacion
+United States,2011,3.156841568622,inflacion
+United States,2010,1.6400434423899,inflacion
+United States,2009,-0.355546266299747,inflacion
+United States,2008,3.839100296651,inflacion
+United States,2007,2.85267248150138,inflacion
+United States,2006,3.22594410070404,inflacion
+United States,2005,3.3927468454955,inflacion
+United States,2004,2.67723669309172,inflacion
+United States,2003,2.27009497336115,inflacion
+United States,2002,1.58603162650601,inflacion
+United States,2001,2.82617111885407,inflacion
+United States,2000,3.37685727149929,inflacion
+United States,1999,2.18802719697358,inflacion
+United States,1998,1.55227909874364,inflacion
+United States,1997,2.33768993730735,inflacion
+United States,1996,2.93120419993441,inflacion
+United States,1995,2.80541968853662,inflacion
+United States,1994,2.60744159215453,inflacion
+United States,1993,2.95165696638559,inflacion
+United States,1992,3.02881967814969,inflacion
+United States,1991,4.23496396453849,inflacion
+United States,1990,5.39795643990325,inflacion
+United States,1989,4.82700303008944,inflacion
+United States,1988,4.07774110744413,inflacion
+United States,1987,3.6645632175169,inflacion
+United States,1986,1.89804772234276,inflacion
+United States,1985,3.54564415209365,inflacion
+United States,1984,4.30053547523429,inflacion
+United States,1983,3.21243523316065,inflacion
+United States,1982,6.13142700027493,inflacion
+United States,1981,10.3347153402771,inflacion
+United States,1980,13.5492019749684,inflacion
+United States,1979,11.2544711292795,inflacion
+United States,1978,7.63096383885606,inflacion
+United States,1977,6.5016839947284,inflacion
+United States,1976,5.74481263549085,inflacion
+United States,1975,9.14314686496535,inflacion
+United States,1974,11.0548048048048,inflacion
+United States,1973,6.17776006377038,inflacion
+United States,1972,3.27227824655283,inflacion
+United States,1971,4.29276668813051,inflacion
+United States,1970,5.83825533848251,inflacion
+United States,1969,5.46238620028745,inflacion
+United States,1968,4.27179615288537,inflacion
+United States,1967,2.77278562259309,inflacion
+United States,1966,3.0150753768844,inflacion
+United States,1965,1.58516926383662,inflacion
+United States,1964,1.27891156462591,inflacion
+United States,1963,1.23966942148753,inflacion
+United States,1962,1.19877334820186,inflacion
+United States,1961,1.07072414764724,inflacion
+United States,1960,1.45797598627791,inflacion
+China,2024,0.218128938439177,inflacion
+China,2023,0.234836828893051,inflacion
+China,2022,1.97357555739051,inflacion
+China,2021,0.981015135544882,inflacion
+China,2020,2.41942189457782,inflacion
+China,2019,2.89923416358227,inflacion
+China,2018,2.07479039965576,inflacion
+China,2017,1.59313600071436,inflacion
+China,2016,2.00000182191943,inflacion
+China,2015,1.43702380935655,inflacion
+China,2014,1.92164162788521,inflacion
+China,2013,2.62105001748115,inflacion
+China,2012,2.61952432645541,inflacion
+China,2011,5.55389892257493,inflacion
+China,2010,3.17532475269199,inflacion
+China,2009,-0.728165250932898,inflacion
+China,2008,5.92525137041092,inflacion
+China,2007,4.81676767378834,inflacion
+China,2006,1.6494309945586,inflacion
+China,2005,1.77641407667571,inflacion
+China,2004,3.82463743108159,inflacion
+China,2003,1.12760348729637,inflacion
+China,2002,-0.731970902350244,inflacion
+China,2001,0.719125609120114,inflacion
+China,2000,0.347811226864587,inflacion
+China,1999,-1.40147268276465,inflacion
+China,1998,-0.773186011549318,inflacion
+China,1997,2.78646505531882,inflacion
+China,1996,8.31316028893909,inflacion
+China,1995,16.7912251650916,inflacion
+China,1994,24.2569897243361,inflacion
+China,1993,14.6100786356602,inflacion
+China,1992,6.35398134024869,inflacion
+China,1991,3.55668565220452,inflacion
+China,1990,3.05229012075233,inflacion
+China,1989,18.2456383621648,inflacion
+China,1988,18.8118179448753,inflacion
+China,1987,7.23383553065609,inflacion
+China,1986,,inflacion
+China,1985,,inflacion
+China,1984,,inflacion
+China,1983,,inflacion
+China,1982,,inflacion
+China,1981,,inflacion
+China,1980,,inflacion
+China,1979,,inflacion
+China,1978,,inflacion
+China,1977,,inflacion
+China,1976,,inflacion
+China,1975,,inflacion
+China,1974,,inflacion
+China,1973,,inflacion
+China,1972,,inflacion
+China,1971,,inflacion
+China,1970,,inflacion
+China,1969,,inflacion
+China,1968,,inflacion
+China,1967,,inflacion
+China,1966,,inflacion
+China,1965,,inflacion
+China,1964,,inflacion
+China,1963,,inflacion
+China,1962,,inflacion
+China,1961,,inflacion
+China,1960,,inflacion
+Brazil,2024,4.36746407652337,inflacion
+Brazil,2023,4.59356282283204,inflacion
+Brazil,2022,9.28010608956873,inflacion
+Brazil,2021,8.30165975585673,inflacion
+Brazil,2020,3.21176803803376,inflacion
+Brazil,2019,3.73297621216894,inflacion
+Brazil,2018,3.66485028376729,inflacion
+Brazil,2017,3.44637335032669,inflacion
+Brazil,2016,8.73914352329393,inflacion
+Brazil,2015,9.02990102416136,inflacion
+Brazil,2014,6.32904015516139,inflacion
+Brazil,2013,6.20431066640101,inflacion
+Brazil,2012,5.40349914036997,inflacion
+Brazil,2011,6.6364496221309,inflacion
+Brazil,2010,5.03872690108075,inflacion
+Brazil,2009,4.88803479876799,inflacion
+Brazil,2008,5.67859390284168,inflacion
+Brazil,2007,3.64127299102652,inflacion
+Brazil,2006,4.18356812896909,inflacion
+Brazil,2005,6.86953720898964,inflacion
+Brazil,2004,6.59718509985963,inflacion
+Brazil,2003,14.7149197228147,inflacion
+Brazil,2002,8.45016437708331,inflacion
+Brazil,2001,6.84035902487523,inflacion
+Brazil,2000,7.04414105947266,inflacion
+Brazil,1999,4.85844749902667,inflacion
+Brazil,1998,3.19507629280052,inflacion
+Brazil,1997,6.92671251629154,inflacion
+Brazil,1996,15.7576656002606,inflacion
+Brazil,1995,66.0070335542481,inflacion
+Brazil,1994,2075.88839757325,inflacion
+Brazil,1993,1927.38079016026,inflacion
+Brazil,1992,951.962053052818,inflacion
+Brazil,1991,432.786661926461,inflacion
+Brazil,1990,2947.732772483,inflacion
+Brazil,1989,1430.7237251472,inflacion
+Brazil,1988,629.114509120897,inflacion
+Brazil,1987,228.336162575513,inflacion
+Brazil,1986,147.142826237604,inflacion
+Brazil,1985,225.989665211895,inflacion
+Brazil,1984,192.121733132051,inflacion
+Brazil,1983,135.027682230473,inflacion
+Brazil,1982,100.54335919485,inflacion
+Brazil,1981,101.725072957927,inflacion
+Brazil,1980,,inflacion
+Brazil,1979,,inflacion
+Brazil,1978,,inflacion
+Brazil,1977,,inflacion
+Brazil,1976,,inflacion
+Brazil,1975,,inflacion
+Brazil,1974,,inflacion
+Brazil,1973,,inflacion
+Brazil,1972,,inflacion
+Brazil,1971,,inflacion
+Brazil,1970,,inflacion
+Brazil,1969,,inflacion
+Brazil,1968,,inflacion
+Brazil,1967,,inflacion
+Brazil,1966,,inflacion
+Brazil,1965,,inflacion
+Brazil,1964,,inflacion
+Brazil,1963,,inflacion
+Brazil,1962,,inflacion
+Brazil,1961,,inflacion
+Brazil,1960,,inflacion
+Germany,2024,2.2564981433876,inflacion
+Germany,2023,5.94643667725823,inflacion
+Germany,2022,6.87257438551097,inflacion
+Germany,2021,3.06666666666673,inflacion
+Germany,2020,0.144877925813982,inflacion
+Germany,2019,1.44565976888253,inflacion
+Germany,2018,1.73216879766942,inflacion
+Germany,2017,1.50949485109628,inflacion
+Germany,2016,0.491747008445174,inflacion
+Germany,2015,0.514426137125456,inflacion
+Germany,2014,0.906794000434246,inflacion
+Germany,2013,1.50472330251876,inflacion
+Germany,2012,2.00848884782956,inflacion
+Germany,2011,2.07517283735874,inflacion
+Germany,2010,1.1038103778926,inflacion
+Germany,2009,0.312739007368447,inflacion
+Germany,2008,2.62837981637219,inflacion
+Germany,2007,2.29834400700951,inflacion
+Germany,2006,1.57742642840563,inflacion
+Germany,2005,1.54691114751328,inflacion
+Germany,2004,1.66573696655992,inflacion
+Germany,2003,1.03422218628562,inflacion
+Germany,2002,1.42080615551526,inflacion
+Germany,2001,1.98385731334471,inflacion
+Germany,2000,1.44026838719741,inflacion
+Germany,1999,0.585433064230783,inflacion
+Germany,1998,0.911183535014403,inflacion
+Germany,1997,1.93937198922729,inflacion
+Germany,1996,1.44972701963239,inflacion
+Germany,1995,1.70616041317076,inflacion
+Germany,1994,2.69305639854954,inflacion
+Germany,1993,4.47457650752808,inflacion
+Germany,1992,5.05697796731731,inflacion
+Germany,1991,4.04703259753466,inflacion
+Germany,1990,2.69646824292392,inflacion
+Germany,1989,2.78056955569751,inflacion
+Germany,1988,1.27411894006923,inflacion
+Germany,1987,0.24990610870503,inflacion
+Germany,1986,-0.129413360854742,inflacion
+Germany,1985,2.0662330121658,inflacion
+Germany,1984,2.4057933993196,inflacion
+Germany,1983,3.29341474302854,inflacion
+Germany,1982,5.24104507228422,inflacion
+Germany,1981,6.34424277746325,inflacion
+Germany,1980,5.44105754460347,inflacion
+Germany,1979,4.04362006473399,inflacion
+Germany,1978,2.71869696123339,inflacion
+Germany,1977,3.73416240635147,inflacion
+Germany,1976,4.24663102299209,inflacion
+Germany,1975,5.91033626324104,inflacion
+Germany,1974,6.98643109327497,inflacion
+Germany,1973,7.03202399303898,inflacion
+Germany,1972,5.4849331221432,inflacion
+Germany,1971,5.24097448273094,inflacion
+Germany,1970,3.45024936360895,inflacion
+Germany,1969,1.91267848797596,inflacion
+Germany,1968,1.470289313277,inflacion
+Germany,1967,1.79604992213175,inflacion
+Germany,1966,3.53306035477689,inflacion
+Germany,1965,3.24231923668133,inflacion
+Germany,1964,2.33573581177832,inflacion
+Germany,1963,2.9669597758771,inflacion
+Germany,1962,2.84327019799062,inflacion
+Germany,1961,2.29369500700884,inflacion
+Germany,1960,1.53661234295201,inflacion
+Japan,2024,2.73853681635241,inflacion
+Japan,2023,3.26813365933163,inflacion
+Japan,2022,2.49770278172255,inflacion
+Japan,2021,-0.233352779398264,inflacion
+Japan,2020,-0.024995834027731,inflacion
+Japan,2019,0.46877615938395,inflacion
+Japan,2018,0.989094598021848,inflacion
+Japan,2017,0.484199796126385,inflacion
+Japan,2016,-0.127258844489754,inflacion
+Japan,2015,0.795279630579839,inflacion
+Japan,2014,2.75922671353253,inflacion
+Japan,2013,0.335037912184741,inflacion
+Japan,2012,-0.0440645104432602,inflacion
+Japan,2011,-0.27245561610124,inflacion
+Japan,2010,-0.728243207517779,inflacion
+Japan,2009,-1.35283672951719,inflacion
+Japan,2008,1.3800788616492,inflacion
+Japan,2007,0.060039454498669,inflacion
+Japan,2006,0.249355116079085,inflacion
+Japan,2005,-0.282946068764391,inflacion
+Japan,2004,-0.00857338820310272,inflacion
+Japan,2003,-0.256541816316025,inflacion
+Japan,2002,-0.923494026942321,inflacion
+Japan,2001,-0.740055504162738,inflacion
+Japan,2000,-0.676578683595175,inflacion
+Japan,1999,-0.341296928327554,inflacion
+Japan,1998,0.661974191385911,inflacion
+Japan,1997,1.74780458692133,inflacion
+Japan,1996,0.136600358575909,inflacion
+Japan,1995,-0.127899045020446,inflacion
+Japan,1994,0.695458057869004,inflacion
+Japan,1993,1.24304589707924,inflacion
+Japan,1992,1.7602830605927,inflacion
+Japan,1991,3.25143848753308,inflacion
+Japan,1990,3.0785162869516,inflacion
+Japan,1989,2.27228962064317,inflacion
+Japan,1988,0.678557580457558,inflacion
+Japan,1987,0.126176841696583,inflacion
+Japan,1986,0.595586799453249,inflacion
+Japan,1985,2.0322773460849,inflacion
+Japan,1984,2.26161369193155,inflacion
+Japan,1983,1.89971971348485,inflacion
+Japan,1982,2.7410409556314,inflacion
+Japan,1981,4.91216291820523,inflacion
+Japan,1980,7.77858176555718,inflacion
+Japan,1979,3.70185092546269,inflacion
+Japan,1978,4.20956601068681,inflacion
+Japan,1977,8.16182689596842,inflacion
+Japan,1976,9.37403638606234,inflacion
+Japan,1975,11.7312661498708,inflacion
+Japan,1974,23.2222458076842,inflacion
+Japan,1973,11.6086235489221,inflacion
+Japan,1972,4.84351713859905,inflacion
+Japan,1971,6.39534883720926,inflacion
+Japan,1970,6.92417383485781,inflacion
+Japan,1969,5.24982091102027,inflacion
+Japan,1968,5.33943295739344,inflacion
+Japan,1967,3.98984808881518,inflacion
+Japan,1966,5.04083205887676,inflacion
+Japan,1965,6.65599094260621,inflacion
+Japan,1964,3.80038945305753,inflacion
+Japan,1963,6.7069055639799,inflacion
+Japan,1962,6.8354403481973,inflacion
+Japan,1961,5.36846178480055,inflacion
+Japan,1960,3.5745115253591,inflacion
