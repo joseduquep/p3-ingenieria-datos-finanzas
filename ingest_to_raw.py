@@ -1,54 +1,73 @@
 #!/usr/bin/env python3
-import boto3, requests, pandas as pd, os, tempfile
-from datetime import date
+"""
+ingest_to_raw.py
+----------------
+• Descarga (o actualiza) dos CSV generados con main.py
+  – inflacion_multi_country.csv
+  – inversion_extranjera_multi_country.csv
+• Sube esos dos CSV + los tres locales (IPC, COLCAP, tasas de interés)
+  al bucket S3, prefijo raw/.
 
-BUCKET = os.environ.get("BUCKET")
-PREFIX = os.environ.get("PREFIX_RAW", "raw/")
+Los archivos locales deben estar junto a este script.
+"""
+
+import os
+import sys
+import datetime
+import boto3
+import requests
+
+BUCKET = "juanzuluaga-proyecto3"
+RAW_PREFIX = "raw"
+
+# URLs generadas previamente por main.py (o desde GitHub RAW si quisieras)
+#REMOTE = {
+#    "inflacion_multi_country.csv":
+#        "https://raw.githubusercontent.com/joseduquep/p3-ingenieria-datos-finanzas/main/inflacion_multi_country.csv",
+#    "inversion_extranjera_multi_country.csv":
+#        "https://raw.githubusercontent.com/joseduquep/p3-ingenieria-datos-finanzas/main/inversion_extranjera_multi_country.csv",
+#}
+
+LOCAL_ONLY = [
+    "indice_precios_consumidor.csv",
+    "tasas_interes_politica.csv",
+]
+
 
 s3 = boto3.client("s3")
 
-# Mapa nombre de archivo → URL de API
-API_MAP = {
-    "inflacion_multi_country.csv":
-        "https://api.worldbank.org/v2/country/CO;BR;CN;DE;JP;US/indicator/FP.CPI.TOTL.ZG?format=json&per_page=1000",
-    "inversion_extranjera_multi_country.csv":
-        "https://api.worldbank.org/v2/country/CO;BR;CN;DE;JP;US/indicator/BX.KLT.DINV.CD.WD?format=json&per_page=1000"
-}
 
-def fetch_and_upload(name, url):
-    print(f"Descargando {name} …")
-    resp = requests.get(url)
-    resp.raise_for_status()
-    data = resp.json()[1]
-    df = pd.DataFrame([{
-        "country": e["country"]["value"],
-        "date":    e["date"],
-        "value":   e["value"]
-    } for e in data])
-    # Guarda en temporal
-    with tempfile.NamedTemporaryFile(delete=False, suffix=".csv") as tmp:
-        df.to_csv(tmp.name, index=False)
-        key = PREFIX + name
-        print(f"Subiendo a s3://{BUCKET}/{key}")
-        s3.upload_file(tmp.name, BUCKET, key)
-        os.unlink(tmp.name)
+def download(url: str, dest: str):
+    print(f"Descargando {dest} …")
+    r = requests.get(url, timeout=30)
+    r.raise_for_status()
+    with open(dest, "wb") as f:
+        f.write(r.content)
+
+
+def upload(file_name: str):
+    key = f"{RAW_PREFIX}/{file_name}"
+    print(f"Subiendo a s3://{BUCKET}/{key}")
+    s3.upload_file(file_name, BUCKET, key)
+
 
 def main():
-    # 1) Descarga desde API y sube
-    for fname, url in API_MAP.items():
-        fetch_and_upload(fname, url)
+    # 1) Descarga/actualiza remotos
+#    for fname, url in REMOTE.items():
+#       download(url, fname)
+#        upload(fname)
 
-    # 2) Sube CSV locales que ya tengas en tu directorio home
-    local_csvs = [
-        "Índice de Precios al Consumidor (IPC).csv",
-        "Tasas de interés de política monetaria.csv"
-    ]
-    for f in local_csvs:
-        if os.path.exists(f):
-            print(f"Subiendo local {f} → s3://{BUCKET}/{PREFIX}{f}")
-            s3.upload_file(f, BUCKET, PREFIX + f)
+    # 2) Sube los CSV locales
+    for fname in LOCAL_ONLY:
+        if not os.path.isfile(fname):
+            print(f"⚠️  Archivo local no encontrado: {fname}", file=sys.stderr)
+            continue
+        print(f"Subiendo local {fname} → s3://{BUCKET}/{RAW_PREFIX}/{fname}")
+        upload(fname)
 
-    print("✔ Ingesta completa:", date.today())
+    print(f"✔ Ingesta completa: {datetime.date.today()}")
+
 
 if __name__ == "__main__":
     main()
+

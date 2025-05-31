@@ -1,36 +1,45 @@
-from pyspark.sql import SparkSession
-from pyspark.sql.functions import col, regexp_replace, lit
+#!/usr/bin/env python3
+# etl.py  – Spark (pyspark) en EMR
+#
+# Lee todos los CSV del bucket/raw/, normaliza columnas, añade
+# columnas de partición (indicator, country) y escribe Parquet
+# particionado en bucket/trusted/.
+
 import sys
+from pyspark.sql import SparkSession
+from pyspark.sql.functions import col, trim
 
-def load_csv(spark, path, indicator):
-    return (spark.read.option("header", True).option("encoding", "UTF-8")
-                 .csv(path).withColumn("indicator", lit(indicator)))
+if len(sys.argv) != 3:
+    print("Uso: etl.py s3://bucket/raw/  s3://bucket/trusted/")
+    sys.exit(1)
 
-if __name__ == "__main__":
-    raw_path, trusted_path = sys.argv[1], sys.argv[2]
-    spark = SparkSession.builder.appName("ETL-Proyecto3").getOrCreate()
+raw_path = sys.argv[1]
+trusted_path = sys.argv[2]
 
-    df1 = load_csv(spark, f"{raw_path}inflacion_multi_country.csv",
-                   "inflacion_anual")
-    df2 = load_csv(spark, f"{raw_path}inversion_extranjera_multi_country.csv",
-                   "inversion_extranjera_directa")
-    df3 = load_csv(spark, f"{raw_path}Índice de Precios al Consumidor (IPC).csv",
-                   "ipc_colombia")
-    df4 = load_csv(spark, f"{raw_path}Tasas de interés de política monetaria.csv",
-                   "tasa_politica_monetaria")
+spark = SparkSession.builder.appName("ETL_RAW_TO_TRUSTED").getOrCreate()
 
-    df = df1.unionByName(df2, True)\
-            .unionByName(df3, True)\
-            .unionByName(df4, True)
+# ==== 1) Carga todos los CSV de raw/ ====
+df = spark.read.option("header", True) \
+               .option("inferSchema", True) \
+               .csv(f"{raw_path}/*.csv")
 
-    df_clean = (df.withColumn("date",
-                              regexp_replace(col("date"), r"-.*", "").cast("int"))
-                  .withColumn("value",
-                              regexp_replace(col("value"), ",", "").cast("double"))
-                  .na.drop(subset=["value"])
-                  .filter(col("date") >= 2000))
+# ==== 2) Normaliza encabezados (sin espacios) ====
+for c in df.columns:
+    df = df.withColumnRenamed(c, c.strip().lower())
 
-    (df_clean.write.mode("overwrite")
-            .partitionBy("indicator", "country")
-            .parquet(trusted_path))
-    spark.stop()
+# Asegura que existen las columnas necesarias
+needed = ["indicator", "country", "date", "value"]
+missing = [c for c in needed if c not in df.columns]
+if missing:
+    raise RuntimeError(f"Columnas faltantes en CSV raw: {missing}")
+
+# Limpia white-space accidental
+df = df.select([trim(col(c)).alias(c) for c in df.columns])
+
+# ==== 3) Escribe Parquet particionado ====
+df.write.mode("overwrite") \
+      .partitionBy("indicator", "country") \
+      .parquet(trusted_path)
+
+spark.stop()
+

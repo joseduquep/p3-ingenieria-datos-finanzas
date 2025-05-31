@@ -1,0 +1,16 @@
+# Ignorar todo por defecto
+*
+
+# PERMITIR archivos importantes:
+!.gitignore
+!run_pipeline.sh
+!ingest_to_raw.py
+!etl.py
+!refined.py
+
+# PERMITIR los CSV finales:
+!indice_precios_consumidor.csv
+!tasas_interes_politica.csv
+!inflacion_multi_country.csv
+!inversion_extranjera_multi_country.csv
+
