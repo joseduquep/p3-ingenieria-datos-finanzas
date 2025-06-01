@@ -1,0 +1,39 @@
+########################
+# Python + AWS project #
+########################
+
+# ▸ Entornos y objetos compilados
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+
+# ▸ Distribución / build
+dist/
+build/
+*.egg-info/
+
+# ▸ Datos (mantén solo muestras si las necesitas)
+*.csv
+*.parquet
+raw/
+trusted/
+refined/
+
+# ▸ Logs y salida temporal
+*.log
+*.gz
+/tmp/
+*.tmp
+
+# ▸ Configuración local / credenciales
+.env
+.aws/
+*.pem
+
+# ▸ IDE / SO
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+

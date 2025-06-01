@@ -1,9 +1,9 @@
 Descargando inflacion_multi_country.csv …
-Subiendo a s3://juanzuluaga-proyecto3/raw/inflacion_multi_country.csv
+Subiendo a s3://p3-finanzas-jpz-us-east-1/raw/inflacion_multi_country.csv
 Descargando inversion_extranjera_multi_country.csv …
-Subiendo a s3://juanzuluaga-proyecto3/raw/inversion_extranjera_multi_country.csv
-Subiendo local Índice de Precios al Consumidor (IPC).csv → s3://juanzuluaga-proyecto3/raw/Índice de Precios al Consumidor (IPC).csv
-Subiendo local Tasas de interés de política monetaria.csv → s3://juanzuluaga-proyecto3/raw/Tasas de interés de política monetaria.csv
+Subiendo a s3://p3-finanzas-jpz-us-east-1/raw/inversion_extranjera_multi_country.csv
+Subiendo local Índice de Precios al Consumidor (IPC).csv → s3://p3-finanzas-jpz-us-east-1/raw/Índice de Precios al Consumidor (IPC).csv
+Subiendo local Tasas de interés de política monetaria.csv → s3://p3-finanzas-jpz-us-east-1/raw/Tasas de interés de política monetaria.csv
 ✔ Ingesta completa: 2025-05-31
 /home/cloudshell-user/run_pipeline.sh: line 19: syntax error near unexpected token `('
 /home/cloudshell-user/run_pipeline.sh: line 19: `  --log-uri s3://aws-logs-\$(aws sts get-caller-identity --query Account --output text)-$REGION/elasticmapreduce/ \'

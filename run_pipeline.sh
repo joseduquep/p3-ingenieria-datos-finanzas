@@ -1,3 +1,5 @@
+
+
 #!/usr/bin/env bash
 ###############################################################################
 # run_pipeline.sh  ·  Reusar clúster EMR existente (j-3NGAMTMFCJCT2)
@@ -8,8 +10,10 @@
 # 4) PUBLISH_JSON           →  copia JSON y crea summary.json + URL
 ###############################################################################
 
-BUCKET=juanzuluaga-proyecto3
-CLUSTER_ID=j-3NGAMTMFCJCT2    # ← clúster EMR en estado WAITING
+BUCKET=p3-602198601432-datos
+export BUCKET
+export BUCKET
+CLUSTER_ID=j-1IQ91IZ847CQE    # ← clúster EMR en estado WAITING
 REGION=us-east-1
 
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
@@ -50,6 +54,22 @@ aws emr wait step-complete --cluster-id "$CLUSTER_ID" --step-id "$PUBLISH_STEP_I
 ###############################################################################
 # 4) RESULTADO: IMPRIMIR LA URL PRE-FIRMADA
 echo "✔ Pipeline completado. URL pre-firmada (válida 7 días):"
-aws s3 cp s3://$BUCKET/refined/summary_json_url.txt -
-echo ""
+# ------------------------------------------------------------------
+# 4) Generar URL pre-firmada automáticamente
+
+PART_KEY=$(aws s3 ls "s3://${BUCKET}/refined/json/" --recursive \
+            | awk '{print $4}' | grep -m1 'part-.*\.json$')
+aws s3 cp "s3://${BUCKET}/${PART_KEY}" \
+          "s3://${BUCKET}/refined/json/summary.json"
+
+
+#----------------------------
+
+
+
+
+# Generar URL pre-firmada (7 días)
+URL=$(aws s3 presign "s3://${BUCKET}/refined/json/summary.json" \
+  --expires-in 604800)
+echo "URL pre-firmada (válida 7 días): $URL"
 

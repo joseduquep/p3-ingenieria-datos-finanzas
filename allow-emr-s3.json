@@ -1,0 +1,17 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "AllowEMRToUseBucket",
+      "Effect": "Allow",
+      "Principal": {
+        "AWS": "arn:aws:iam::602198601432:role/EMR_EC2_DefaultRole"
+      },
+      "Action": "s3:*",
+      "Resource": [
+        "arn:aws:s3:::p3-finanzas-jpz-us-east-1",
+        "arn:aws:s3:::p3-finanzas-jpz-us-east-1/*"
+      ]
+    }
+  ]
+}
