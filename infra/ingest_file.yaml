@@ -1,0 +1,44 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Parameters:
+  RawBucket: {Type: String}
+  Artifacts: {Type: String}
+Resources:
+  LambdaRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument: { ... }
+      Policies:
+        - PolicyName: PutRaw
+          PolicyDocument:
+            Statement:
+              - Effect: Allow
+                Action: s3:PutObject
+                Resource: !Sub arn:aws:s3:::${RawBucket}/*
+  IngestFile:
+    Type: AWS::Lambda::Function
+    Properties:
+      Code: {S3Bucket: !Ref Artifacts, S3Key: ingest_file_lambda.zip}
+      Handler: ingest_file_lambda.handler
+      Runtime: python3.12
+      MemorySize: 256
+      Timeout: 60
+      Role: !GetAtt LambdaRole.Arn
+      Environment:
+        Variables: {RAW_BUCKET: !Ref RawBucket}
+  RuleDailyFile:
+    Type: AWS::Events::Rule
+    Properties:
+      ScheduleExpression: rate(1 day)
+      Targets:
+        - Arn: !GetAtt IngestFile.Arn
+          Id: tgt
+          Input: >-
+            {"url":"https://example.com/file.csv"}
+  Permission:
+    Type: AWS::Lambda::Permission
+    Properties:
+      FunctionName: !Ref IngestFile
+      Action: lambda:InvokeFunction
+      Principal: events.amazonaws.com
+      SourceArn: !GetAtt RuleDailyFile.Arn
+

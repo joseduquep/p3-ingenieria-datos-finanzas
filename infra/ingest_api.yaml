@@ -1,0 +1,104 @@
+# infra/ingest_api.yaml  –  Despliega Lambda + EventBridge para ingesta API Banco Mundial
+AWSTemplateFormatVersion: "2010-09-09"
+Description: "Lambda que descarga indicadores del World Bank Open Data y los guarda en S3 Raw"
+
+###############################################################################
+# Parámetros
+###############################################################################
+Parameters:
+  RawBucket:
+    Type: String
+    Description: Nombre del bucket S3 para la zona Raw (solo nombre, sin s3://)
+  Artifacts:
+    Type: String
+    Description: Bucket donde se encuentra ingest_api_lambda.zip
+  Indicators:
+    Type: String
+    Description: >
+      Lista de indicadores WB separados por coma, p. ej. 
+      "NY.GDP.MKTP.CD,SL.UEM.TOTL.ZS,IT.NET.USER.ZS"
+  Countries:
+    Type: String
+    Default: "COL;BRA;ARG"
+    Description: >
+      Lista de países ISO-3 separados por punto y coma (;) 
+      que la Lambda consultará, p. ej. "COL;BRA;ARG;MEX"
+
+###############################################################################
+# Recursos
+###############################################################################
+Resources:
+
+  ## Rol IAM para la Lambda ---------------------------------------------------
+  IngestApiRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service: lambda.amazonaws.com
+            Action: sts:AssumeRole
+      Path: /
+      Policies:
+        # Permiso para escribir en Raw
+        - PolicyName: PutRaw
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Effect: Allow
+                Action: s3:PutObject
+                Resource: !Sub arn:aws:s3:::${RawBucket}/*
+        # Logs de CloudWatch
+        - PolicyName: Logs
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Effect: Allow
+                Action:
+                  - logs:CreateLogGroup
+                Resource: !Sub arn:aws:logs:${AWS::Region}:${AWS::AccountId}:*
+              - Effect: Allow
+                Action:
+                  - logs:CreateLogStream
+                  - logs:PutLogEvents
+                Resource: !Sub arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/*
+
+  ## Función Lambda -----------------------------------------------------------
+  IngestAPILambda:
+    Type: AWS::Lambda::Function
+    Properties:
+      Code:
+        S3Bucket: !Ref Artifacts
+        S3Key:    ingest_api_lambda.zip
+      Handler: ingest_api_lambda.handler
+      Runtime: python3.12
+      MemorySize: 256
+      Timeout: 60
+      Role: !GetAtt IngestApiRole.Arn
+      Environment:
+        Variables:
+          RAW_BUCKET: !Ref RawBucket
+          INDICATORS: !Ref Indicators
+          COUNTRIES:  !Ref Countries
+
+  ## Regla EventBridge (cada 6 h) --------------------------------------------
+  RuleEvery6h:
+    Type: AWS::Events::Rule
+    Properties:
+      ScheduleExpression: rate(6 hours)
+      State: ENABLED
+      Targets:
+        - Arn: !GetAtt IngestAPILambda.Arn
+          Id: IngestApiTarget
+
+  ## Permiso para que EventBridge invoque la Lambda ---------------------------
+  LambdaInvokePermission:
+    Type: AWS::Lambda::Permission
+    Properties:
+      FunctionName: !Ref IngestAPILambda
+      Action: lambda:InvokeFunction
+      Principal: events.amazonaws.com
+      SourceArn: !GetAtt RuleEvery6h.Arn
+
